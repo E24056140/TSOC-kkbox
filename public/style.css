@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+      background-image: url("bg.jpg");
+	  font-family: 'Noto Sans TC';
+    }
+#loginbutton{
+  background-image:url(fb.png);
+}
+#belowbox{
+  background-color:rgba(255, 255, 255, 0.6) ;
+  width:60vw;
+  vertical-align:top;
+  padding-left: 2.5vw;
+}
+.searchimg{
+  height:3.5vw;
+  position: relative;
+  top: 1.2vw;
+  left:24.3vw;
+  z-index: 1;
+  color: #4f5b66;
+}
+container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+.container-1 input#search{
+  width: 25vw;
+  height: 4vw;
+  background: #2b303b;
+  border: none;
+  font-size: 14pt;
+  color: #262626;
+  padding-left: 2.5vw;
+  padding-right:4vw;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-bottom: 2vw;
+   
+  -webkit-transition: background .55s ease;
+  -moz-transition: background .55s ease;
+  -ms-transition: background .55s ease;
+  -o-transition: background .55s ease;
+  transition: background .55s ease;
+}
+#inputbox{
+  width:400px;
+  height:280px;
+  overflow:hidden;
+  background-color:#FFF;
+  color:#222;
+  font-family:Courier, monospace;
+  font-weight:normal;
+  font-size:18px;
+  resize:none;
+  line-height:40px;
+  padding-left:100px;
+  padding-right:100px;
+  padding-top:45px;
+  padding-bottom:34px;
+  background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+  background-repeat:repeat-y, repeat;
+  -webkit-border-radius:12px;
+  border-radius:12px;
+  -webkit-box-shadow: 0px 2px 14px #000;
+  box-shadow: 0px 2px 14px #000;
+  border-top:1px solid #FFF;
+  border-bottom:1px solid #FFF;
+}
+#success{
+  width:50%;
+  display:inline-block;
+}
+#success1{
+  width:50%;
+  float:right;
+ }
+#summit{
+    cursor:pointer;
+    position:relative;
+    top:-12px;
+    height:40px;
+    margin-left:10px;
+    padding-top:4px;
+    padding-left:16px;
+    padding-right:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:20px;
+    color:#FFF;
+    text-shadow: 0px -1px 0px #000000;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    border-top:1px solid #FFF;
+    -webkit-box-shadow: 0px 2px 14px #000;
+    box-shadow: 0px 2px 14px #000;
+    background-color: #62add6;
+    background-image:url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
+    background-repeat:repeat-x;
+}
+
