@@ -155,15 +155,33 @@ if(parseInt(red.body.wordlong) > 25){
 						getdata(m+1,endtime+1);
 					}
 					else{
-						if(m==endtime){
-						  rep.send(backdata);
-						  var finishtime=Date();
-						  console.log(sttime+"DONE!"+finishtime);
-						}
-						else{
-						  getdata(m+1,endtime);
-						}
-					}
+		if(backdata[m-endtime+4].tracks.data[0].album.release_date==undefined){
+			backdata[m-endtime+4]=undefined;
+			console.log("<老到沒日子>");
+			getdata(m+1,endtime+1);
+		}
+		else{
+			console.log(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
+			var theyear=parseInt(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
+			console.log(theyear<2010);
+			if(theyear<2010){
+				
+				backdata[m-endtime+4]=undefined;
+				console.log("<太老了>");
+				getdata(m+1,endtime+1);
+			}
+			else{
+				if(m==endtime){
+				  rep.send(backdata);
+				  var finishtime=Date();
+				  console.log(sttime+"DONE!"+finishtime);
+				}
+				else{
+				  getdata(m+1,endtime);
+				}
+			}
+		}
+	}
 				 });
 				});
 				req.end();
@@ -633,9 +651,6 @@ var req = https.request(options, function (res) {
   res.on("end", function () {
     var body = Buffer.concat(chunks);
     backdata[m-endtime+4]=(JSON.parse(body.toString()));
-	//console.log(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
-	//var theyear=parseInt(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
-	//console.log(theyear>2000);
 	if(KeyArray[m+1]==undefined){
 		if(backdata[m-endtime+4]==undefined||backdata[m-endtime+4].tracks.data[0]==undefined||backdata[m-endtime+4].tracks.data[0].url==check[0]||backdata[m-endtime+4].tracks.data[0].url==check[1]||backdata[m-endtime+4].tracks.data[0].url==check[2]||backdata[m-endtime+4].tracks.data[0].url==check[3]){
 			backdata[m-endtime+4]=undefined;
@@ -650,13 +665,31 @@ var req = https.request(options, function (res) {
 		getdata(m+1,endtime+1);
 	}
 	else{
-		if(m==endtime){
-		  rep.send(backdata);
-		  var finishtime=Date();
-		  console.log(sttime+"DONE!"+finishtime);
+		if(backdata[m-endtime+4].tracks.data[0].album.release_date==undefined){
+			backdata[m-endtime+4]=undefined;
+			console.log("<老到沒日子>");
+			getdata(m+1,endtime+1);
 		}
 		else{
-		  getdata(m+1,endtime);
+			console.log(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
+			var theyear=parseInt(backdata[m-endtime+4].tracks.data[0].album.release_date.slice(0,4));
+			console.log(theyear<2010);
+			if(theyear<2010){
+				
+				backdata[m-endtime+4]=undefined;
+				console.log("<太老了>");
+				getdata(m+1,endtime+1);
+			}
+			else{
+				if(m==endtime){
+				  rep.send(backdata);
+				  var finishtime=Date();
+				  console.log(sttime+"DONE!"+finishtime);
+				}
+				else{
+				  getdata(m+1,endtime);
+				}
+			}
 		}
 	}
  });
